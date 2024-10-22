@@ -1,8 +1,13 @@
 /* eslint-disable react/prop-types */
-const Input = ({ task, setTask }) => {
+const Input = ({ task, setTask, addTask }) => {
 
+  const addThisTask = (e) => {
+    if (e.key === "Enter") {
+      addTask();
+    }
+  }
   return (
-    <input className="mx-3" type="text" onChange={(e) => setTask(e.target.value)} value={task} placeholder="Enter Task"/>
+    <input className="mx-3" type="text" onKeyUp={addThisTask} onChange={(e) => setTask(e.target.value)}  Value={task} placeholder="Enter a task"/>
   )
 }
 
