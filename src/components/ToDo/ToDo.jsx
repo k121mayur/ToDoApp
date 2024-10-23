@@ -9,7 +9,7 @@ import styles from "./ToDo.module.css";
 
 const ToDo = () => {
   const [tasks, setTasks] = useState(JSON.parse(localStorage.getItem("persistantTasks")) || []);
-  const [task, setTask] = useState("Welcome");
+  const [task, setTask] = useState("");
   const addTask = () => {
     if (task === "" || task.trim() === "") {
     alert("Please enter a task");
@@ -22,7 +22,7 @@ const ToDo = () => {
   
   return (
     <div className={styles.ToDo}>
-      <h1 className="text-primary m-3">To Do App</h1>
+      <h1 className="text-primary m-3 my-5">To Do App</h1>
       <div>
         <Input task={task} setTask={setTask} addTask={addTask}/>
         <Button variant="primary" onClick={addTask}>Add</Button>
@@ -30,7 +30,7 @@ const ToDo = () => {
 
       </div>
 
-      <List tasks={tasks} />
+      <List tasks={tasks} setTasks={setTasks} />
     </div>
   );
 };

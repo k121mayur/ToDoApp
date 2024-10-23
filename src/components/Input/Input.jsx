@@ -7,7 +7,7 @@ const Input = ({ task, setTask, addTask }) => {
     }
   }
   return (
-    <input className="mx-3" type="text" onKeyUp={addThisTask} onChange={(e) => setTask(e.target.value)}  Value={task} placeholder="Enter a task"/>
+    <input className="mx-3 p-1 rounded border shadow" type="text" onKeyUp={addThisTask} onChange={(e) => setTask(e.target.value)} value={task} placeholder="Enter a task"/>
   )
 }
 
