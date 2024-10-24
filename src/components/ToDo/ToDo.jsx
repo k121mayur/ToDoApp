@@ -14,16 +14,16 @@ const ToDo = () => {
     if (task === "" || task.trim() === "") {
     alert("Please enter a task");
   } else {
-    setTasks([...tasks, task]);
-    localStorage.setItem("persistantTasks", JSON.stringify([...tasks, task]));
+    setTasks([...tasks, {task: task, markedDone: false}]);
+    localStorage.setItem("persistantTasks", JSON.stringify([...tasks, {task: task, markedDone: false}]));
     setTask("");
   }
   };
   
   return (
-    <div className={styles.ToDo}>
+    <div className={`${styles.ToDo} d-flex flex-column align-items-center justify-content-center`}>
       <h1 className="text-primary m-3 my-5">To Do App</h1>
-      <div>
+      <div className="col-12 d-flex justify-content-center align-items-center">
         <Input task={task} setTask={setTask} addTask={addTask}/>
         <Button variant="primary" onClick={addTask}>Add</Button>
         <Button variant="danger"  className="mx-3" onClick={() => {setTasks([]); localStorage.setItem("persistantTasks", JSON.stringify([]))} }>Reset </Button>
