@@ -41,20 +41,28 @@ const ListItem = ({ index, task="", tasks=[], setTasks }) => {
   const deleteHandler = () => {
     const deleteConfirmation = confirm("Are you sure you want to delete this task?");
     if (deleteConfirmation) {
-      setTasks(tasks.filter((t, i) => i !== index))
+      const updatedTasks = [...tasks];
+      updatedTasks.splice(index, 1);
+      console.log(updatedTasks, "updatedTasks");
+      
+      setTasks(updatedTasks)
+      localStorage.setItem("persistantTasks", JSON.stringify([...updatedTasks]));
+
+    }else{
+      alert("Task not deleted")
     }
     
   }
 
   return (
-    <div className={`my-1 ${task.markedDone ? "bg-success" : "bg-light"} col-10 text-left p-1 rounded`}> 
+    <div className={`my-1 ${task.markedDone ? "bg-success" : "bg-light"} col-11 text-left p-1 rounded`}> 
       <div className="d-flex justify-content-between p-1">
-        <p className={`${task.markedDone ? "text-white" : "text-primary"} m-0 col-8`}>{task.task}</p>
-        <div className="col-4 d-flex justify-content-between align-items-center">
+        <p className={`${task.markedDone ? "text-white" : "text-primary"} m-0 col-md-8`}>{task.task}</p>
+        <div className="col-md-4 col-6 d-flex justify-content-between align-items-center">
           <i className={`fa-solid fa-arrow-up ${task.markedDone ? "text-white" : "text-primary"}`} onClick={() => {arrowUpHandeler(index)}} ></i>
           <i className={`fa-solid fa-arrow-down ${task.markedDone ? "text-white" : "text-primary"}`} onClick={() => {arrowDownHandeler(index)}}></i>
           <input type="checkbox" className="h-100 bg-success" checked={task.markedDone} onChange={() => { stateHandeler()}} />
-          <button className={`btn btn-danger ${task.markedDone ? "" : "d-none"} p-0 px-1`}  style={{height: "20px", fontSize: "10px"}} onClick={() => {deleteHandler()}}>Delete</button>
+          <button className={`btn btn-danger ${task.markedDone ? "" : "d-none"} p-0 px-1`}  style={{height: "20px", fontSize: "10px"}} onClick={deleteHandler}>Delete</button>
         </div>
       </div>
     </div>
