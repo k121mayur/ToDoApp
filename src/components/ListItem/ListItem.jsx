@@ -2,7 +2,7 @@ import { useState } from "react";
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 
-const ListItem = ({ index, task = "", tasks, setTasks, arrowUpHandeler, arrowDownHandeler, stateHandeler, deleteHandler }) => {
+const ListItem = ({ index, task = "", tasks, setTasks }) => {
   const [done, setDone] = useState("d-none");
   const [showModal, setShowModal] = useState(false);
 
@@ -16,6 +16,7 @@ const ListItem = ({ index, task = "", tasks, setTasks, arrowUpHandeler, arrowDow
   };
 
   const arrowDownHandeler = (i) => {
+    // eslint-disable-next-line react/prop-types
     if (i === tasks.length - 1) return;
     const newTasks = [...tasks];
     [newTasks[i + 1], newTasks[i]] = [newTasks[i], newTasks[i + 1]];
