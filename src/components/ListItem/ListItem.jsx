@@ -31,11 +31,11 @@ const ListItem = ({
             type="text"
             defaultValue={task.name}
             onChange={(e) => {
-              setTaskHandler(index, e.target.value)
+              setTaskHandler(list, index, e.target.value)
             }}
             onKeyUp={(e) => {
               if (e.key === "Enter") {
-                setEditTaskHandeler(index);
+                setEditTaskHandeler(list, index);
             }}}
           />
         )}
@@ -57,7 +57,7 @@ const ListItem = ({
             className={`fa-solid fa-pen-to-square ${
               task.markedDone ? "text-white" : "text-primary"
             }`}
-            onClick={() => setEditTaskHandeler(index)}
+            onClick={() => setEditTaskHandeler(list, index)}
           ></i>
           )}
           
