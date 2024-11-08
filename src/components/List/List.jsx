@@ -16,8 +16,7 @@ const List = ({ name, tasks, setTasks, arrowHandeler, stateHandeler, deleteHandl
     toggleModal();
   };
 
-  return (
-    <div className="bg-white col-lg-4 col-xl-4 col-md-6 col-sm-12 col-10 mt-3 d-flex flex-column align-items-center justify-content-center rounded shadow p-3">
+  return ( tasks[name].length > 0 && (<div className="bg-white col-lg-4 col-xl-4 col-md-6 col-sm-12 col-10 mt-3 d-flex flex-column align-items-center justify-content-center rounded shadow p-3">
       <div className="d-flex flex-row justify-content-start">
         <h4 className="text-success mx-5">{name}</h4> 
         { tasks[name].filter((task) => task.markedDone).length > 0 && (
@@ -65,8 +64,7 @@ const List = ({ name, tasks, setTasks, arrowHandeler, stateHandeler, deleteHandl
           </Button>
         </Modal.Footer>
       </Modal>
-    </div>
-  );
+    </div>))
 };
 
 List.propTypes = {

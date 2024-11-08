@@ -42,7 +42,6 @@ import {Routes, Route} from "react-router-dom";
   // CRUD Functions
 
   const arrowHandeler = (list, source, destination) => {
-    // eslint-disable-next-line react/prop-types
     const newTasks = {Personal: [...tasks.Personal], Professional: [...tasks.Professional], Other: [...tasks.Other] };
     [newTasks[list][source], newTasks[list][destination]] = [
       newTasks[list][destination],
@@ -95,8 +94,9 @@ import {Routes, Route} from "react-router-dom";
         <div className="d-flex justify-content-center align-items-center flex-row mt-3">
           
           <Button
+                  id="reset-btn"
                   variant="danger"
-                  className="mx-1 col-xs-2"
+                  className={`mx-1 col-xs-2 ${styles.resetBtn}`}
                   onClick={() => {
                     toggleModalDelete();
                   }}

@@ -99,7 +99,7 @@ const ListItem = ({
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <p>{task.task}</p>
+          <p>{task.name}</p>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={toggleModal}>

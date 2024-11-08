@@ -23,12 +23,12 @@ function App() {
             To Do App
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav" className="col-12">
+          <Navbar.Collapse id="basic-navbar-nav" className="col-10">
             <Nav className="me-auto col-12">
               <Nav.Link href="/">Personal</Nav.Link>
               <Nav.Link href="/professional">Professional</Nav.Link>
               <Nav.Link href="/other">Other</Nav.Link>
-              <div className="d-flex justify-content-end col-8" >
+              <div className="d-flex justify-content-end col-10" >
               <Nav.Item className="ms-auto">
                 <Button variant="success" disabled>Login</Button>
               </Nav.Item>
