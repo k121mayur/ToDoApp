@@ -1,11 +1,12 @@
-/* eslint-disable react/prop-types */
 import { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
+import PropTypes from "prop-types";
 
 const ListItem = ({
   index,
-  task = "",
+  task,
+  list,
   tasks,
   arrowHandeler,
   stateHandeler,
@@ -64,19 +65,19 @@ const ListItem = ({
             className={`fa-solid fa-arrow-up ${
               task.markedDone ? "text-white" : "text-primary"
             } ${index === 0 ? "d-none" : ""}`}
-            onClick={() => arrowHandeler(index, index - 1)}
+            onClick={() => arrowHandeler(list, index, index - 1)}
           ></i>
           <i
             className={`fa-solid fa-arrow-down ${
               task.markedDone ? "text-white" : "text-primary"
-            } ${index === tasks.length - 1 ? "d-none" : ""}`}
-            onClick={() => arrowHandeler(index, index + 1)}
+            } ${index === tasks[list].length - 1 ? "d-none" : ""}`}
+            onClick={() => arrowHandeler(list, index, index + 1)}
           ></i>
           <input
             type="checkbox"
             className="bg-success"
             checked={task.markedDone}
-            onChange={() => stateHandeler(index)}
+            onChange={() => stateHandeler(list, index)}
           />
           <button
             className={`btn btn-danger ${
@@ -107,7 +108,7 @@ const ListItem = ({
           <Button
             variant="danger"
             onClick={() => {
-              deleteHandler(index);
+              deleteHandler(list, index);
               toggleModal();
             }}
           >
@@ -118,5 +119,19 @@ const ListItem = ({
     </div>
   );
 };
+
+ListItem.propTypes = {
+  index: PropTypes.number.isRequired,
+  list: PropTypes.string.isRequired,
+  task: PropTypes.object.isRequired,
+  tasks: PropTypes.arrayOf(PropTypes.object).isRequired,
+  arrowHandeler: PropTypes.func.isRequired,
+  stateHandeler: PropTypes.func.isRequired,
+  deleteHandler: PropTypes.func.isRequired,
+  setTaskHandler: PropTypes.func.isRequired,
+  setEditTaskHandeler: PropTypes.func.isRequired
+};
+
+
 
 export default ListItem;

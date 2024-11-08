@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import Button from "react-bootstrap/Button";
-/* eslint-disable react/prop-types */
+import PropTypes from "prop-types";
 
 const Input = ({ task, setTask, addTask }) => {
   const [isEditingTask, setIsEditingTask] = useState(false);
@@ -103,5 +103,12 @@ const Input = ({ task, setTask, addTask }) => {
     </div>
   );
 };
+
+
+Input.propTypes = {
+  task: PropTypes.string.isRequired,
+  setTask: PropTypes.func.isRequired,
+  addTask: PropTypes.func.isRequired
+}
 
 export default Input;

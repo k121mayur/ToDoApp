@@ -12,7 +12,7 @@ function App() {
     <>
       <Navbar expand="lg" bg="light">
       <Container>
-        <Navbar.Brand href="#home"> <img
+        <Navbar.Brand href="/"> <img
               src="https://icon-library.com/images/to-do-icon/to-do-icon-16.jpg"
               width="30"
               height="30"
@@ -24,8 +24,9 @@ function App() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#home" >Home</Nav.Link>
-            <Nav.Link href="#link">Link</Nav.Link>
+            <Nav.Link href="/" >Personal</Nav.Link>
+            <Nav.Link href="/professional">Professional</Nav.Link>
+            <Nav.Link href="/other">Other</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
